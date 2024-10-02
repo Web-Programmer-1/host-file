@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Product</title>
+</head>
+<body>
+  <h1>Find First Product</h1>
+  <input type="text" id="findInput" placeholder="Find a product">
+  <button onclick="findProduct()">Find</button>
+  <p id="result"></p>
+
+  <script>
+    const products = ['Apple', 'Banana', 'Orange', 'Grapes'];
+
+    function findProduct() {
+      const searchValue = document.getElementById('findInput').value.toLowerCase();
+      const foundProduct = products.find(product => product.toLowerCase() === searchValue);
+      console.log(foundProduct);
+      document.getElementById('result').innerText = foundProduct ? `Found: ${foundProduct}` : 'Product not found';
+    }
+  </script>
+</body>
+</html> 
+

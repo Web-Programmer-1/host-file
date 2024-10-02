@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Search</title>
+</head>
+<body>
+  <h1>Product Search</h1>
+  <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search for a product">
+  <ul id="productList"></ul>
+
+  <script>
+    const products = ['amm', 'jam', 'kola', 'licu', 'borai'];
+
+    function displayProducts(filteredProducts) {
+      const productList = document.getElementById('productList');
+      productList.innerHTML = ''; // Clear previous items
+      filteredProducts.forEach(product => {
+        productList.innerHTML += `<li>${product}</li>`;
+      });
+    }
+
+    function filterProducts() {
+      const searchValue = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = products.filter(product => product.toLowerCase().includes(searchValue));
+      displayProducts(filtered);
+    }
+
+    displayProducts(products); // Initial display
+  </script>
+</body>
+</html>

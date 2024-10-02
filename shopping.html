@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+  <div id="cart"></div>
+  <h3>Total Price: <span id="totalPrice"></span></h3>
+
+  <script>
+    const cart = [
+      { name: 'Apple', price: 30 },
+      { name: 'Banana', price: 20 },
+      { name: 'Orange', price: 50 }
+    ];
+
+    function displayCart() {
+      const cartDiv = document.getElementById('cart');
+      cartDiv.innerHTML = ''; // Clear previous items
+
+      cart.map(item => {
+        cartDiv.innerHTML += `<p>${item.name}: $${item.price}</p>`;
+      });
+
+      const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+      document.getElementById('totalPrice').innerText = totalPrice;
+    }
+
+    displayCart();
+  </script>
+</body>
+</html>
